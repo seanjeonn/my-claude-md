@@ -1,0 +1,65 @@
+name: Feature
+description: Plan and track an approved, multi-step change.
+title: "[Feature]: "
+labels:
+  - feature
+body:
+  - type: markdown
+    attributes:
+      value: Use this issue as the parent for related implementation sub-issues.
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What outcome should this feature achieve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: background
+    attributes:
+      label: Background
+      description: Why is this work needed?
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is included in this feature?
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List the verifiable conditions required to complete this feature.
+      placeholder: |
+        - [ ] Condition one
+        - [ ] Condition two
+    validations:
+      required: true
+
+  - type: textarea
+    id: planned-work
+    attributes:
+      label: Planned Work
+      description: List planned sub-issues or implementation steps.
+      placeholder: |
+        - [ ] #123
+        - [ ] #124
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of Scope
+      description: What is intentionally excluded?
+
+  - type: input
+    id: related-issues
+    attributes:
+      label: Related Issues
+      description: Link related proposals, issues, or pull requests.

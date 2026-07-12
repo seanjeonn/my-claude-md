@@ -1,0 +1,70 @@
+name: Work Proposal
+description: Record candidate work discovered through analysis, review, or deferred scope.
+title: "[Proposal]: "
+labels:
+  - proposal
+body:
+  - type: markdown
+    attributes:
+      value: Do not include secrets, credentials, or exploitable security details in a public issue.
+
+  - type: dropdown
+    id: source
+    attributes:
+      label: Source
+      description: Where did this proposal originate?
+      options:
+        - Security review
+        - Business review
+        - Technical review
+        - Deferred from active work
+        - Outside MVP scope
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What work should be considered?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What led to this proposal?
+    validations:
+      required: true
+
+  - type: textarea
+    id: findings
+    attributes:
+      label: Findings
+      description: Summarize relevant observations or evidence.
+
+  - type: textarea
+    id: expected-value
+    attributes:
+      label: Expected Value
+      description: What benefit or risk reduction would this work provide?
+
+  - type: textarea
+    id: suggested-approach
+    attributes:
+      label: Suggested Approach
+      description: Describe a possible direction without over-specifying the implementation.
+
+  - type: textarea
+    id: deferral
+    attributes:
+      label: Deferral and Revisit Conditions
+      description: Why is this not being handled now, and when should it be reconsidered?
+
+  - type: input
+    id: related-work
+    attributes:
+      label: Related Work
+      description: Link the originating feature, issue, review, or pull request.
