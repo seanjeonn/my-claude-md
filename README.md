@@ -26,6 +26,21 @@ Trivial or tightly coupled work stays in the main conversation.
 
 ## Use This Template
 
+### Option A — Clone as a new project
+
+Start a fresh project from this repository, then detach it from this history:
+
+```bash
+git clone https://github.com/seanjeonn/my-agent-md.git my-project
+cd my-project
+rm -rf .git
+git init
+```
+
+`rm -rf .git` removes the template's commit history so `git init` starts your own. Point the new repository at your own remote when you create it.
+
+### Option B — Copy into an existing project
+
 Copy or merge these paths into the root of an existing project:
 
 ```text
@@ -35,7 +50,9 @@ docs/github-workflow.md
 .github/
 ```
 
-Then review the two project-specific policies:
+### After either option
+
+Review the two project-specific policies:
 
 - Update the model routing table in the `orchestrate` skill for the models and adapters available in your environment.
 - Update `docs/github-workflow.md` if your branch strategy or merge targets differ.
