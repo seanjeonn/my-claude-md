@@ -13,6 +13,8 @@ Never commit or push directly to `main` or `develop`. All changes must be merged
 
 Before modifying files, ensure the task has its own worktree and branch.
 
+Do not add another layer of isolation when the session is already inside a dedicated worktree on a task branch. Decide by state, not path: if `git worktree list` shows the current directory as its own worktree and the branch is not `main`/`develop`, the requirement is already satisfied — work in place. Only create a new worktree and branch when still on `main`/`develop`.
+
 Name branches using:
 
 ```text
