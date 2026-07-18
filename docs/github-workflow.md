@@ -21,12 +21,15 @@ Name branches using:
 
 Use lowercase kebab-case for the scope and description.
 
-| Type        | Base      | Merge Target |
-| ----------- | --------- | ------------ |
-| `feature/*` | `develop` | `develop`    |
-| `fix/*`     | `develop` | `develop`    |
-| `chore/*`   | `develop` | `develop`    |
-| `hotfix/*`  | `main`    | `main`       |
+The branch type matches the Conventional Commits type of the work, except `hotfix/*`:
+
+| Type       | Base      | Merge Target |
+| ---------- | --------- | ------------ |
+| `feat/*`   | `develop` | `develop`    |
+| `fix/*`    | `develop` | `develop`    |
+| `docs/*`   | `develop` | `develop`    |
+| `chore/*`  | `develop` | `develop`    |
+| `hotfix/*` | `main`    | `main`       |
 
 After merging a hotfix into `main`, propagate the same fix to `develop` through a pull request.
 
