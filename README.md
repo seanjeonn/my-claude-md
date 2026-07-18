@@ -31,7 +31,7 @@ Trivial or tightly coupled work stays in the main conversation.
 Start a fresh project from this repository, then detach it from this history:
 
 ```bash
-git clone https://github.com/seanjeonn/my-agent-md.git my-project
+git clone https://github.com/seanjeonn/my-claude-md.git my-project
 cd my-project
 rm -rf .git
 git init

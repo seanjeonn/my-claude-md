@@ -4,9 +4,7 @@
 
 ## Related Issues
 
-<!-- Link the implementation issue and parent Feature when applicable. -->
-
-Related to #
+<!-- Link the implementation issue and parent Feature. Write "None" when not applicable. -->
 
 ## Validation
 
