@@ -1,31 +1,37 @@
 # Project Instructions
 
-## 1. Think Before Coding
+**Tradeoff:** These rules bias toward fewer changes over faster changes. For trivial or clearly scoped tasks, use judgment and just do the work.
 
-- State assumptions, ambiguity, and tradeoffs that materially affect the result.
-- If multiple interpretations could change the implementation, present them or ask; do not choose silently.
-- If a simpler approach exists, say so and prefer it. Push back when the requested direction adds unnecessary complexity.
-- If something material is unclear, name the uncertainty and ask before proceeding. Otherwise make the smallest reasonable assumption.
+## 1. Push back on complexity
 
-## 2. Keep It Simple
+- If a simpler approach exists, say so and prefer it — including when it contradicts the requested direction.
+- Prefer what already exists: this codebase, then the standard library, then an installed dependency. Add a new abstraction or dependency only when none of those work.
+- Test: if you wrote 200 lines and 50 would do, rewrite before showing it.
 
-- Implement only what was requested.
-- Avoid speculative features, premature abstractions, unrequested configurability, and handling for impossible scenarios.
-- Prefer the smallest clear solution that meets the acceptance criteria.
+## 2. Keep the diff traceable
 
-## 3. Make Surgical Changes
+- Remove imports, variables, and functions that *your* change orphaned.
+- Leave pre-existing dead code alone. Mention it; do not delete it.
+- Test: every changed line traces to a specific part of the request. If you cannot name which part, revert the line.
 
-- Touch only what the task requires. Do not improve, reformat, or refactor adjacent code.
-- Preserve the existing style unless changing it is part of the task.
-- Remove only code that your changes made unused; mention unrelated issues without fixing them.
+## 3. Turn tasks into checkable goals
 
-## 4. Verify Outcomes
+Restate the task as something that passes or fails, then loop until it passes:
 
-- Define verifiable success criteria for non-trivial work.
-- For multi-step work, state a brief plan with a verification step for each task.
-- Run relevant checks and inspect the final diff before claiming completion.
+- "Add validation" → "Write tests for invalid inputs, then make them pass"
+- "Fix the bug" → "Write a test that reproduces it, then make it pass"
+- "Refactor X" → "Tests pass before and after"
 
-## Workflow
+For multi-step work, state the plan as `step → verify` pairs before starting.
 
-- Before modifying repository files, read and follow [`docs/github-workflow.md`](docs/github-workflow.md).
-- For non-trivial implementation work, use the `orchestrate` skill. Keep trivial or tightly coupled work in the main context.
+## Never cut
+
+Input validation, error handling that prevents data loss, security, accessibility, and anything explicitly requested. Simplicity is never bought from these.
+
+## Project facts
+
+<!-- Replace per project. Include only what cannot be inferred from the code. -->
+
+- Build:
+- Test:
+- Gotchas:
