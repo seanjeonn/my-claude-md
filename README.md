@@ -18,12 +18,13 @@ Copy [`CLAUDE.md`](CLAUDE.md) into your project root and fill in **Project facts
 
 Run `/init` in Claude Code to draft those facts from your codebase, then prune what it guesses.
 
-## Skills
+## Skills or Plugins
 
 Installed separately — not part of this template. Listed so a new project starts with them in mind.
 
-| Skill | Use it for | Source |
+| Skill or plugin | Use it for | Source |
 | --- | --- | --- |
+| **claude-md-management** | Maintaining this file: audits `CLAUDE.md` against the codebase, and `/revise-claude-md` folds session learnings back in | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-md-management) |
 | **superpowers** | General methodology: planning, TDD, debugging, and skill authoring itself | [obra/superpowers](https://github.com/obra/superpowers) |
 | **gstack** | An opinionated end-to-end setup — discovery, design, release, docs, and QA as slash commands | [garrytan/gstack](https://github.com/garrytan/gstack) |
 | **graphify** | Understanding a codebase: turns code, docs, and papers into a queryable knowledge graph | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) |
