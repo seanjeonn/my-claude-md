@@ -28,6 +28,10 @@ For multi-step work, state the plan as `step → verify` pairs before starting.
 
 Input validation, error handling that prevents data loss, security, accessibility, and anything explicitly requested. Simplicity is never bought from these.
 
+## Workflow
+
+- Link work to a tracking issue before implementing; pick the template that fits.
+
 ## Project facts
 
 <!-- Replace per project. Include only what cannot be inferred from the code. -->
