@@ -30,6 +30,7 @@ Installed separately — not part of this template. Listed so a new project star
 | **graphify** | Understanding a codebase: turns code, docs, and papers into a queryable knowledge graph | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) |
 | **ponytail** | Writing less code: reuse, stdlib, and native features before anything new | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) |
 | **taste-skill** | Frontend and design work — layout, typography, motion, and spacing that doesn't look generated | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) |
+| **eli5** | `/eli5 <topic>` — explains anything as a picture-first HTML artifact with big visuals and few words | [anthropics/claude-plugins-community](https://github.com/anthropics/claude-plugins-community/tree/main/eli5) |
 
 ## Keep it pruned
 
