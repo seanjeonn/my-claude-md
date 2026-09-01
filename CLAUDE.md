@@ -31,6 +31,7 @@ Input validation, error handling that prevents data loss, security, accessibilit
 ## Workflow
 
 - Link work to a tracking issue before implementing; pick the template that fits.
+- Git/branch/release rules: see `docs/github-workflow.md`.
 
 ## Project facts
 
