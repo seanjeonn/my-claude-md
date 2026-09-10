@@ -14,9 +14,30 @@ Rules that survive carry a checkable test next to them. Rules that only restate 
 
 ## Use it
 
-Copy [`CLAUDE.md`](CLAUDE.md) into your project root and fill in **Project facts**. That section is the most valuable part and the only one a template can't write for you: build and test commands, environment quirks, and gotchas Claude can't infer from the code.
+Three files, and only the first is required:
 
-Run `/init` in Claude Code to draft those facts from your codebase, then prune what it guesses.
+| File | Copy it when | Why |
+| --- | --- | --- |
+| [`CLAUDE.md`](CLAUDE.md) | always | the rules themselves |
+| [`docs/github-workflow.md`](docs/github-workflow.md) | you keep the **Workflow** section | `CLAUDE.md` links to it; without the file the link is dead |
+| [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE) | you track work as GitHub issues | backs the "link work to a tracking issue" rule |
+
+```sh
+git clone --depth 1 https://github.com/seanjeonn/my-claude-md.git /tmp/my-claude-md
+cd /path/to/your-project
+
+cp /tmp/my-claude-md/CLAUDE.md .
+
+# optional, only if you keep the Workflow section
+mkdir -p docs .github && cp /tmp/my-claude-md/docs/github-workflow.md docs/
+cp -r /tmp/my-claude-md/.github/ISSUE_TEMPLATE .github/
+```
+
+Then:
+
+1. **Fill in Project facts.** That section is the most valuable part and the only one a template can't write for you: build and test commands, environment quirks, and gotchas Claude can't infer from the code. Run `/init` in Claude Code to draft them from your codebase, then prune what it guesses.
+2. **Drop what you skipped.** If you didn't copy the workflow file or the issue templates, delete the matching bullet under **Workflow** — a rule pointing at a file that isn't there is worse than no rule.
+3. **Check it loaded.** Start a session and run `/memory`; the project `CLAUDE.md` should be listed.
 
 ## Skills or Plugins
 
