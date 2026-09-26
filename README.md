@@ -34,14 +34,15 @@ Three files, and only the first is required:
 | [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE) | you track work as GitHub issues | backs the "link work to a tracking issue" rule |
 
 ```sh
-git clone --depth 1 https://github.com/seanjeonn/my-claude-md.git /tmp/my-claude-md
-cd /path/to/your-project
+src=$(mktemp -d)
+git clone --depth 1 https://github.com/seanjeonn/my-claude-md.git "$src"
+cd /path/to/your-project   # replace with your project's path
 
-cp /tmp/my-claude-md/CLAUDE.md .
+cp "$src/CLAUDE.md" .
 
 # optional, only if you keep the Workflow section
-mkdir -p docs .github && cp /tmp/my-claude-md/docs/github-workflow.md docs/
-cp -r /tmp/my-claude-md/.github/ISSUE_TEMPLATE .github/
+mkdir -p docs .github && cp "$src/docs/github-workflow.md" docs/
+cp -r "$src/.github/ISSUE_TEMPLATE" .github/
 ```
 
 Then:
