@@ -31,7 +31,7 @@ Three files, and only the first is required:
 | --- | --- | --- |
 | [`CLAUDE.md`](CLAUDE.md) | always | Workflow + Project facts |
 | [`docs/github-workflow.md`](docs/github-workflow.md) | you keep the **Workflow** section | the project file links to it; without the file the link is dead |
-| [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE) | you track work as GitHub issues | backs the "link work to a tracking issue" rule |
+| [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE) | you track work as GitHub issues | backs the issue rules under **Workflow** |
 
 ```sh
 src=$(mktemp -d)
@@ -48,7 +48,7 @@ cp -r "$src/.github/ISSUE_TEMPLATE" .github/
 Then:
 
 1. **Fill in Project facts.** That section is the most valuable part and the only one a template can't write for you: build and test commands, environment quirks, and gotchas Claude can't infer from the code. Run `/init` in Claude Code to draft them from your codebase, then prune what it guesses.
-2. **Drop what you skipped.** If you didn't copy the workflow file or the issue templates, delete the matching bullet under **Workflow** — a rule pointing at a file that isn't there is worse than no rule.
+2. **Drop what you skipped.** If you didn't copy the workflow file or the issue templates, delete the matching bullets under **Workflow** — a rule pointing at a file that isn't there is worse than no rule.
 3. **Check it loaded.** Start a session and run `/memory`; the project `CLAUDE.md` should be listed.
 
 ## Skills or Plugins
