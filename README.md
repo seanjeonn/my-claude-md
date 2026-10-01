@@ -1,6 +1,6 @@
 # CLAUDE.md Template
 
-A minimal `CLAUDE.md` for Claude Code: the [ponytail](https://github.com/DietrichGebert/ponytail) plugin carries the coding rules, and this file carries only the facts about your repository that no plugin can know.
+A minimal `AGENTS.md` for Claude Code and Codex, with a one-line `CLAUDE.md` that imports it: the [ponytail](https://github.com/DietrichGebert/ponytail) plugin carries the coding rules, and this file carries only the facts about your repository that no plugin can know.
 
 ## Why it's short
 
@@ -21,24 +21,32 @@ This template assumes ponytail is on. Install it once at user scope so every rep
 /plugin install ponytail@ponytail
 ```
 
-A new session then starts with `PONYTAIL MODE ACTIVE — level: full`. Do not add minimalism rules to `CLAUDE.md` on top of it: stacking rules on the plugin was measured to cost more, not less.
+For Codex, from the shell:
+
+```sh
+codex plugin marketplace add DietrichGebert/ponytail
+codex plugin add ponytail@ponytail
+```
+
+A new session then starts with `PONYTAIL MODE ACTIVE — level: full`. Do not add minimalism rules to `AGENTS.md` on top of it: stacking rules on the plugin was measured to cost more, not less.
 
 ## Use it
 
-Three files, and only the first is required:
+Four files, and only the first two are required:
 
 | File | Copy it when | Why |
 | --- | --- | --- |
-| [`CLAUDE.md`](CLAUDE.md) | always | Workflow + Project facts |
+| [`AGENTS.md`](AGENTS.md) | always | Workflow + Project facts; Codex reads it directly |
+| [`CLAUDE.md`](CLAUDE.md) | always | one line, `@AGENTS.md`, so Claude Code loads the same file |
 | [`docs/github-workflow.md`](docs/github-workflow.md) | you keep the **Workflow** section | the project file links to it; without the file the link is dead |
-| [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE) | you track work as GitHub issues | backs the "link work to a tracking issue" rule |
+| [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE) | you track work as GitHub issues | backs the issue rules under **Workflow** |
 
 ```sh
 src=$(mktemp -d)
 git clone --depth 1 https://github.com/seanjeonn/my-claude-md.git "$src"
 cd /path/to/your-project   # replace with your project's path
 
-cp "$src/CLAUDE.md" .
+cp "$src/AGENTS.md" "$src/CLAUDE.md" .
 
 # optional, only if you keep the Workflow section
 mkdir -p docs .github && cp "$src/docs/github-workflow.md" docs/
@@ -47,9 +55,9 @@ cp -r "$src/.github/ISSUE_TEMPLATE" .github/
 
 Then:
 
-1. **Fill in Project facts.** That section is the most valuable part and the only one a template can't write for you: build and test commands, environment quirks, and gotchas Claude can't infer from the code. Run `/init` in Claude Code to draft them from your codebase, then prune what it guesses.
-2. **Drop what you skipped.** If you didn't copy the workflow file or the issue templates, delete the matching bullet under **Workflow** — a rule pointing at a file that isn't there is worse than no rule.
-3. **Check it loaded.** Start a session and run `/memory`; the project `CLAUDE.md` should be listed.
+1. **Fill in Project facts** in `AGENTS.md`. That section is the most valuable part and the only one a template can't write for you: build and test commands, environment quirks, and gotchas Claude can't infer from the code. Run `/init` in Claude Code to draft them from your codebase, then prune what it guesses.
+2. **Drop what you skipped.** If you didn't copy the workflow file or the issue templates, delete the matching bullets under **Workflow** — a rule pointing at a file that isn't there is worse than no rule.
+3. **Check it loaded.** Start a session and run `/memory`; the project `CLAUDE.md` and the `AGENTS.md` it imports should both be listed.
 
 ## Skills or Plugins
 
